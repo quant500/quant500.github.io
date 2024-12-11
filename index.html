@@ -2,12 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Willkommen auf meiner Website</title>
+    <title>Willkkommen</title>
     <base href="/">
-    <meta name="viewport"
-    content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1"
+          name="viewport">
+    <link href="style.css" rel="stylesheet">
+    <script src="javascript.js"></script>
+    <script>
+        window.onload = () => {
+            document.getElementById("defaultOpen").click(); // Get the element with id="defaultOpen" and click on it
+        }
+    </script>
 </head>
 <body>
+<header>
+    <!-- <img alt="logo" src="logo.svg"> -->
+</header>
 
+<div class="tab">
+    <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'welcome')">Willkommen</button>
+    <button class="tablinks" onclick="openTab(event, 'aboutMe')">Über mich</button>
+    <button class="tablinks" onclick="openTab(event, 'myServices')">Meine Dienste</button>
+    <button class="tablinks" onclick="openTab(event, 'techStack')">Technologien und Frameworks</button>
+    <button class="tablinks" onclick="openTab(event, 'testimonials')">Was Kunden über mich sagen</button>
+    <button class="tablinks" onclick="openTab(event, 'contact')">Kontaktieren Sie mich</button>
+</div>
+
+<div class="tabcontent" id="welcome">
+    <h3>Willkommen auf meiner Website</h3>
+    <p>Als erfahrener Softwareentwickler biete ich innovative Lösungen für Ihr Unternehmen.</p>
+    <a href="kontakt.html">Kontaktieren sie mich</a>
+</div>
+
+<div class="tabcontent" id="aboutMe">
+    <p>Werdegang</p>
+    <p>Leidenschaft</p>
+    <p>Kundenorientierung</p>
+</div>
+
+<div class="image-1"></div>
+
+<div class="images">
+    <div class="image-1"></div>
+    <img src="images/1-welcome.png">
+    <img src="images/2-aboutMe.png">
+    <img src="images/3-myServices.png">
+    <img src="images/5-techStack.png">
+    <img src="images/6-testimonials.png">
+    <img src="images/7-contact.png">
+</div>
+
+<footer>
+    <p>© 2024 by Michael Meichel</p>
+</footer>
 </body>
 </html>

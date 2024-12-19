@@ -71,15 +71,19 @@ img {
     align-content: center;
 }
 
-.image-1 {
-    background-image: url("images/1-welcome-dev.png");
+.frame {
+    width: 600px;
+}
 
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
+.blur {
+    backdrop-filter: sepia(60%);
+    filter: alpha(0.7, 0.3);
+    /*filter: blur(3px);*/
+    /*-webkit-filter: blur(3px);*/
 
-    /*height: 100%;*/
+    height: 100%;
 
-    /*background-position: center;*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: cover;*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

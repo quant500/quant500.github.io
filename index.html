@@ -2,45 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Wilkkommen</title>
+    <title>Willkommen</title>
     <base href="/">
-    <meta content="width=device-width, initial-scale=1"
-          name="viewport">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="style.css" rel="stylesheet">
-    <script src="javascript.js"></script>
     <script>
         window.onload = () => {
-            document.getElementById("defaultOpen").click(); // Get the element with id="defaultOpen" and click on it
+            (document.getElementsByClassName("hidden").style.display = "block").click();
         }
     </script>
 </head>
 <body>
-<header>
-    <!-- <img alt="logo" src="logo.svg"> -->
-</header>
 
-<div class="tab">
-    <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'welcome')">Willkommen</button>
-    <button class="tablinks" onclick="openTab(event, 'aboutMe')">Über mich</button>
-    <button class="tablinks" onclick="openTab(event, 'myServices')">Meine Dienste</button>
-    <button class="tablinks" onclick="openTab(event, 'techStack')">Technologien und Frameworks</button>
-    <button class="tablinks" onclick="openTab(event, 'testimonials')">Was Kunden über mich sagen</button>
-    <button class="tablinks" onclick="openTab(event, 'contact')">Kontaktieren Sie mich</button>
-</div>
-
-<div class="tabcontent" id="aboutMe">
-    <p>Werdegang</p>
-    <p>Leidenschaft</p>
-    <p>Kundenorientierung</p>
-</div>
-
-
-<div>
+<div class="hidden">
     <div class="images">
         <img class="frame blur img-repeat" src="images/1-welcome-dev.png" style="width: 1200px; height: 500px">
         <img class="frame" src="images/1-welcome-dev.png" style="width: 400px">
     </div>
-    <div class="tabcontent" id="welcome">
+    <div class="content">
         <h3 class="header">Willkommen auf meiner Website</h3>
         <p class="paragraph">Als erfahrener Softwareentwickler biete ich innovative Lösungen für Ihr Unternehmen.</p>
         <a class= "button" href="mailto:michael_meichel@outlook.com?subject=Anfrage von der Website&body=Hallo,%0D%0A%0D%0AIch interessiere mich für...
@@ -48,13 +27,15 @@
     </div>
 </div>
 
+
+<!--
 <img src="images/1-welcome.png">
 <img src="images/2-aboutMe.png">
-
-<!--    <img src="images/3-myServices.png">-->
-<!--    <img src="images/5-techStack.png">-->
-<!--    <img src="images/6-testimonials.png">-->
-<!--    <img src="images/7-contact.png">-->
+<img src="images/3-myServices.png">
+<img src="images/5-techStack.png">
+<img src="images/6-testimonials.png">
+<img src="images/7-contact.png">
+-->
 
 <footer>
     <p>© 2025 by Michael Meichel</p>

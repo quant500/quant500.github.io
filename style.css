@@ -1,3 +1,4 @@
+/* Globaler Reset und Box-Sizing */
 *,
 *::before,
 *::after {
@@ -6,131 +7,116 @@
     box-sizing: border-box;
 }
 
-/* Style the tab */
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+/* Basis-Stile */
+body {
+    font-family: 'Open Sans', sans-serif;
+    overflow: auto;
 }
 
-/* Style the buttons that are used to open the tab content */
+img {
+    max-width: 100%;
+}
+
+/* Layout-Komponenten */
+.tab {
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    overflow: hidden;
+}
+
 .tab button {
-    background-color: inherit;
     float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
     padding: 14px 16px;
+    background: inherit;
+    border: none;
+    cursor: pointer;
     transition: 0.3s;
 }
 
-/* Change background color of buttons on hover */
 .tab button:hover {
     background-color: #ddd;
 }
 
-/* Create an active/current tablink class */
 .tab button.active {
     background-color: #ccc;
 }
 
-/* Style the tab content */
-.tabcontent {
-    display: none;
-    animation: fadeEffect 3s; /* Fading effect takes 3 second */
+/* Flex-Container */
+div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    position: relative;
 }
 
-/* Go from zero to full opacity */
-@keyframes fadeEffect {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-body {
-    overflow: auto; /* show scrollbars only during scrolling */
-    font-family: 'Open Sans', sans-serif;
-}
-
-
-img {
-    max-width: 100%; /* otherwise the images are too wide */
-}
-
+/* Bilder-Layout */
 .images {
     display: flex;
-    flex-direction: row;
-    align-items: center;  /* Vertikale Zentrierung */
-    justify-content: flex-start;  /* Ausrichtung von links beginnend */
-
-    position: relative;  /* Referenzpunkt für absolute Positionierung */
+    align-items: center;
+    position: relative;
+    flex-shrink: 0;
 }
 
 .images img:first-child {
-    transform: scale(1.5);  /* Macht das Bild um 50% größer */
-    position: relative;  /* Behält seinen Platz im Dokumentfluss */
-    z-index: 1;  /* Untere Ebene */
+    transform: scale(1.5);
+    position: relative;
+    z-index: 1;
 }
 
 .images img:nth-child(2) {
-    animation: fadeEffect 3s; /* Fading effect takes 3 second */
-    transform: scale(1.1);  /* Macht das Bild um 10% größer */
-    position: absolute;  /* Wird aus dem Dokumentfluss genommen */
-    top: 50px;  /* Verschiebung nach unten */
-    left: 100px;  /* Verschiebung nach rechts */
-    z-index: 2;  /* Obere Ebene */
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    transform: scale(1.1);
+    z-index: 2;
+    animation: fadeEffect 3s;
 }
 
+.hidden {
+    display: none; // erstmal Ausblenden, bei window.onLoad alles auf einmal anzeigen
+}
+
+/* Inhaltsbereich */
+.content {
+    animation: fadeEffect 3s;
+    position: absolute;
+    z-index: 3;
+    top: 10px;
+    left: 550px;
+    flex: 1;
+    padding: 20px;
+}
+
+/* Typografie */
+.header {
+    font-size: 4em;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.paragraph {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 50px;
+}
+
+/* UI-Elemente */
+.button {
+    display: inline-block;
+    font-size: 1.2em;
+    text-decoration: none;
+    background-color: #032cc3;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+/* Effekte */
 .blur {
     filter: blur(20px) brightness(110%) contrast(30%);
 }
 
-/* Äußerer Container */
-div:first-child {
-    display: flex;
-    align-items: center;
-    gap: 50px;  /* Abstand zwischen Bildern und Text */
-    position: relative;  /* Wichtig für z-index Kontext */
-
-}
-
-/* Bilder-Container bleibt wie bisher */
-.images {
-    position: relative;
-    flex-shrink: 0;  /* Verhindert das Zusammendrücken der Bilder */
-}
-
-/* Textbereich styling */
-.tabcontent {
-    flex: 1;  /* Nimmt den verfügbaren Platz ein */
-    padding: 20px;
-
-    position: absolute;
-    z-index: 3;
-
-    top: 100px;  /* Verschiebung nach unten */
-    left: 600px;  /* Verschiebung nach rechts */
-}
-
-.header {
-    font-size: 5em;
-    margin-bottom: 30px;
-}
-
-.paragraph {
-    font-size: 1.7em;
-    margin-bottom: 50px;
-}
-
-.button {
-    font-size: 1.2em;
-    display: inline-block;
-    padding: 10px 20px;
-    text-decoration: none;
-    background-color: #032cc3;  /* Oder Ihre gewünschte Farbe */
-    color: white;
-    border-radius: 5px;
+@keyframes fadeEffect {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }

@@ -17,28 +17,12 @@ img {
     max-width: 100%;
 }
 
-/* Layout-Komponenten */
-.tab {
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    overflow: hidden;
+.image1 {
+    width: 1200px; height: 500px
 }
 
-.tab button {
-    float: left;
-    padding: 14px 16px;
-    background: inherit;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.tab button:hover {
-    background-color: #ddd;
-}
-
-.tab button.active {
-    background-color: #ccc;
+.image2 {
+    width: 400px;
 }
 
 /* Flex-Container */

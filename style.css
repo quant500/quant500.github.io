@@ -37,9 +37,6 @@
 /* Style the tab content */
 .tabcontent {
     display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
     animation: fadeEffect 3s; /* Fading effect takes 3 second */
 }
 
@@ -55,6 +52,7 @@
 
 body {
     overflow: auto; /* show scrollbars only during scrolling */
+    font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -64,26 +62,75 @@ img {
 
 .images {
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+    flex-direction: row;
+    align-items: center;  /* Vertikale Zentrierung */
+    justify-content: flex-start;  /* Ausrichtung von links beginnend */
+
+    position: relative;  /* Referenzpunkt für absolute Positionierung */
 }
 
-.frame {
-    width: 600px;
+.images img:first-child {
+    transform: scale(1.5);  /* Macht das Bild um 50% größer */
+    position: relative;  /* Behält seinen Platz im Dokumentfluss */
+    z-index: 1;  /* Untere Ebene */
+}
+
+.images img:nth-child(2) {
+    animation: fadeEffect 3s; /* Fading effect takes 3 second */
+    transform: scale(1.1);  /* Macht das Bild um 10% größer */
+    position: absolute;  /* Wird aus dem Dokumentfluss genommen */
+    top: 50px;  /* Verschiebung nach unten */
+    left: 100px;  /* Verschiebung nach rechts */
+    z-index: 2;  /* Obere Ebene */
 }
 
 .blur {
-    backdrop-filter: sepia(60%);
-    filter: alpha(0.7, 0.3);
-    /*filter: blur(3px);*/
-    /*-webkit-filter: blur(3px);*/
+    filter: blur(20px) brightness(110%) contrast(30%);
+}
 
-    height: 100%;
+/* Äußerer Container */
+div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 50px;  /* Abstand zwischen Bildern und Text */
+    position: relative;  /* Wichtig für z-index Kontext */
 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+}
+
+/* Bilder-Container bleibt wie bisher */
+.images {
+    position: relative;
+    flex-shrink: 0;  /* Verhindert das Zusammendrücken der Bilder */
+}
+
+/* Textbereich styling */
+.tabcontent {
+    flex: 1;  /* Nimmt den verfügbaren Platz ein */
+    padding: 20px;
+
+    position: absolute;
+    z-index: 3;
+
+    top: 100px;  /* Verschiebung nach unten */
+    left: 600px;  /* Verschiebung nach rechts */
+}
+
+.header {
+    font-size: 5em;
+    margin-bottom: 30px;
+}
+
+.paragraph {
+    font-size: 1.7em;
+    margin-bottom: 50px;
+}
+
+.button {
+    font-size: 1.2em;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #032cc3;  /* Oder Ihre gewünschte Farbe */
+    color: white;
+    border-radius: 5px;
 }
